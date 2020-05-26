@@ -21,10 +21,10 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 Create another variable called `periods` and give it the value of years*12.
 */
 
-const monthlyInterestRate = monthlyInterestRate*12
+const monthlyInterestRate = interestRate/12;
 console.log(monthlyInterestRate);
-
 const periods = years*12;
+
 
 
 
@@ -38,6 +38,10 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
 
+const numerator = (monthlyInterestRate * Math.pow((monthlyInterestRate + 1),periods ));
+const denominator = (Math.pow((monthlyInterestRate + 1),periods) - 1);
+const monthlyRate = principal * (numerator/denominator);
+console.log(monthlyRate);s
 
 
 
