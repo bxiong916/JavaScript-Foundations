@@ -5,6 +5,11 @@
 */
 
 
+const principal = 200000;
+const interestRate = 0.05;
+const years = 30;
+
+const name = "Bill";
 
 
 
