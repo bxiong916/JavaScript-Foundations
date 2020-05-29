@@ -21,7 +21,9 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 Create another variable called `periods` and give it the value of years*12.
 */
 
-
+const monthlyInterestRate = interestRate/12;
+console.log(monthlyInterestRate);
+const periods = years*12;
 
 
 
@@ -36,7 +38,10 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
 
-
+const numerator = (monthlyInterestRate * Math.pow((monthlyInterestRate + 1),periods ));
+const denominator = (Math.pow((monthlyInterestRate + 1),periods) - 1);
+const monthlyRate = principal * (numerator/denominator);
+console.log(monthlyRate);
 
 
 
@@ -46,7 +51,10 @@ When your math is correct, monthlyRate will equal 1073.64
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
-
+function mortgageCalculator() {
+    console.log(`${name}, your monthly rate is ${monthlyRate}`);
+  }
+  mortgageCalculator();
 
 
 
@@ -59,6 +67,10 @@ For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
+function mortgageCalculatorB(P, I, N) {
+    console.log(P * ((I * Math.pow(I + 1, N)) / (Math.pow(I + 1, N) - 1)));
+  }
+  mortgageCalculatorB(200000, 0.05, 30);
   
   
 
@@ -70,7 +82,21 @@ mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 Then, add control flow within your function such that IF creditScore is above 740, interest rate drops by 0.5%, if credit score is below 660, interest rate increases by 0.5% and if credit score is anywhere between 660 and 740 interest rate doesn't change.
 */
 
+let c = Math.floor(Math.random() * 801) 
+console.log(c);
 
+const I = interestRate / 12;
+function mortgageCalculatorC(C,I) {
+  if (c > 740) {
+    return I -= 0.005;
+  }
+  else if (c < 660) {
+    return I += 0.005;
+  }
+  else {
+    return I;
+  }
+}
 
 
 // 🏡 Task 6: Loops
@@ -90,6 +116,28 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.055, your monthly rate is $1136"
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
+
+function variableInterestRate(P, I, N) {
+    for (let I = 0.02; I <= 0.06; I = I + 0.005) {
+  
+      const periods = N * 12;
+  
+      let monthlyRate =
+      P * 
+      (((I / 12) * Math.pow(1 + I / 12, periods)) /
+      (Math.pow(1 + I / 12, periods) - 1));
+  
+  
+      console.log(
+        `${name}, with an interest rate of ` +
+        I.toFixed(3) +
+        `, your monthly rate is $` +
+        monthlyRate
+      );
+    }
+    return;
+  }
+  variableInterestRate(200000, 0.04, 30);
 
 
 
